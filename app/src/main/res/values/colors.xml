@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="narengi">#FF5733</color>
+    <color name="Salmon">#FA8072</color>
+    <color name="blue">#0000ff</color>
+
+    //gradients
+    //1
+    <color name="g1">#ff512f</color>
+    <color name="g2">#dd2476</color>
+    //2
+    <color name="lush1">#56ab2f</color>
+    <color name="lush2">#a8e063</color>
+    //3
+    <color name="e_river1">#43cea2</color>
+    <color name="e_river2">#185a9d</color>
+    //4
+    <color name="Au1">#aa076b</color>
+    <color name="Au2">#61045f</color>
+
+
+
+    <color name="Yellow">#DFFF00</color>
+    <color name="purple">#5B2C6F</color>
+    <color name="pink1">#dd5e89</color>
+    <color name="pink2">#f7bb97</color>
+    <color name="green">#28B463</color>
+    <color name="light_green">#28B463</color>
+    <color name="Red">#FF001F</color>
+</resources>
