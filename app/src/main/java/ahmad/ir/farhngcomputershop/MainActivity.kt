@@ -1,12 +1,12 @@
 package ahmad.ir.farhngcomputershop
 
 import android.content.Intent
+import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.core.os.HandlerCompat.postDelayed
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.activity_main.*
@@ -19,6 +19,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         val f_anim:Animation = AnimationUtils.loadAnimation(this,R.anim.fadein_anim)
+        val typeface = Typeface.createFromAsset(assets,"fonts/irani_nas_font.TTF")
+        name_txt.setTypeface(typeface)
         name_txt.startAnimation(f_anim)
         img_logo.startAnimation(f_anim)
 
@@ -27,11 +29,10 @@ class MainActivity : AppCompatActivity() {
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .into(load_gif)
 
-        Handler().postDelayed(Runnable {
-            kotlin.run {
-                val intent = Intent(this,HomeActivity::class.java)
-                startActivity(intent)
-            }
+        Handler().postDelayed({
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+            finish()
         },5000L)
 
     }
