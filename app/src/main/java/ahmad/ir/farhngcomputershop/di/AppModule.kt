@@ -3,6 +3,8 @@ package ahmad.ir.farhngcomputershop.di
 
 import ahmad.ir.farhngcomputershop.constant.Utils.DATABASE_NAME
 import ahmad.ir.farhngcomputershop.database.DatabaseClass
+import ahmad.ir.farhngcomputershop.database.ImageDao
+import ahmad.ir.farhngcomputershop.repository.Repository
 import android.content.Context
 import androidx.room.Room
 import dagger.Module
@@ -21,7 +23,9 @@ object AppModule {
     @Provides
     fun provideDatabase(
         @ApplicationContext context:Context
-    ) = Room.databaseBuilder(context,DatabaseClass::class.java,DATABASE_NAME).build()
+    ) = Room.databaseBuilder(context,DatabaseClass::class.java,DATABASE_NAME)
+            .allowMainThreadQueries()
+            .build()
 
     @Singleton
     @Provides
@@ -29,5 +33,9 @@ object AppModule {
         databaseClass: DatabaseClass
     ) = databaseClass.imageDao()
 
+
+    @Singleton
+    @Provides
+    fun provideRepository(imageDao: ImageDao) = Repository(imageDao);
 
 }

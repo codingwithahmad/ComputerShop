@@ -1,22 +1,24 @@
-package ahmad.ir.farhngcomputershop
+package ahmad.ir.farhngcomputershop.fragments
 
+import ahmad.ir.farhngcomputershop.R
 import ahmad.ir.farhngcomputershop.adapter.HeaderAdapter
-import ahmad.ir.farhngcomputershop.database.ImageDao
+import ahmad.ir.farhngcomputershop.models.Header
 import ahmad.ir.farhngcomputershop.viewmodel.MainViewModel
+import android.graphics.BitmapFactory
 import android.graphics.Typeface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.view.*
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
@@ -34,17 +36,16 @@ class HomeFragment : Fragment() {
         view.title_text.setTypeface(typeface)
 
 
+
+
         view.rec_view_header.layoutManager = LinearLayoutManager(requireContext(),
             LinearLayoutManager.HORIZONTAL,false)
         val adapter = HeaderAdapter()
-        lifecycleScope.launch(Dispatchers.IO) {
+
+        lifecycleScope.launch() {
             adapter.submitList(mainViewModel.getAllData())
-            lifecycleScope.launch(Dispatchers.Main) {
-                view.rec_view_header.adapter = adapter
-            }
+            view.rec_view_header.adapter = adapter
         }
-
-
 
         return view
     }
