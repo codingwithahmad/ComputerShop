@@ -75,4 +75,25 @@
         app:layout_constraintGuide_percent=".15" />
 
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rec_laptop"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/rec_view_top_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/bottom_guide_header"
+        app:layout_constraintVertical_bias="1.0"
+        tools:listitem="@layout/laptop_card" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/rec_view_top_line"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent=".62" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

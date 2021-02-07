@@ -2,7 +2,9 @@ package ahmad.ir.farhngcomputershop.fragments
 
 import ahmad.ir.farhngcomputershop.R
 import ahmad.ir.farhngcomputershop.adapter.HeaderAdapter
+import ahmad.ir.farhngcomputershop.adapter.LaptopAdapter
 import ahmad.ir.farhngcomputershop.models.Header
+import ahmad.ir.farhngcomputershop.models.Laptop
 import ahmad.ir.farhngcomputershop.viewmodel.MainViewModel
 import android.graphics.BitmapFactory
 import android.graphics.Typeface
@@ -19,11 +21,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.view.*
 import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
 
+
     val mainViewModel:MainViewModel by viewModels();
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,9 +52,22 @@ class HomeFragment : Fragment() {
             adapter.submitList(mainViewModel.getAllData())
             view.rec_view_header.adapter = adapter
         }
+        view.rec_laptop.layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.HORIZONTAL,false)
+        val adapter2 = LaptopAdapter(requireContext())
+        val allLaptop = arrayListOf<Laptop>()
+        for (i in mainViewModel.getLaptop()) {
+            allLaptop.add(i);
+            adapter2.submitlist(allLaptop)
+            view.rec_laptop.adapter = adapter2
+        }
+
+
+
 
         return view
     }
+
+
 
 
 }
