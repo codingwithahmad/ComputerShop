@@ -6,6 +6,8 @@ import ahmad.ir.farhngcomputershop.models.Header
 import ahmad.ir.farhngcomputershop.models.Laptop
 import ahmad.ir.farhngcomputershop.retrofit.RetrofitInstance
 import dagger.hilt.android.AndroidEntryPoint
+import retrofit2.Call
+import retrofit2.Response
 import retrofit2.Retrofit
 import javax.inject.Inject
 
@@ -15,8 +17,8 @@ class Repository @Inject constructor(
 ) {
 
 
-    fun getLaptop():List<Laptop> {
-        return RetrofitInstance.api.getPost()
+    fun getLaptop(): Call<MutableList<Laptop?>?>? {
+        return RetrofitInstance.api.getData()
     }
 
 

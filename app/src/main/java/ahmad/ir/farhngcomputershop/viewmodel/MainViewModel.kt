@@ -12,6 +12,7 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import retrofit2.Call
 
 
 class MainViewModel @ViewModelInject constructor(
@@ -22,7 +23,7 @@ class MainViewModel @ViewModelInject constructor(
 
 
 
-    fun getLaptop() = repository.getLaptop()
+    fun getLaptop(): Call<MutableList<Laptop?>?>? = repository.getLaptop()
 
     fun insertHeader(header: Header) {
         viewModelScope.launch(Dispatchers.IO) {

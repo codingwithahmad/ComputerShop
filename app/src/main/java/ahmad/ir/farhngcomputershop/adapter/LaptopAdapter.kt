@@ -38,7 +38,7 @@ class LaptopAdapter(
 
     val differCallBack = object : DiffUtil.ItemCallback<Laptop>() {
         override fun areItemsTheSame(oldItem: Laptop, newItem: Laptop): Boolean {
-            return oldItem.id == newItem.id
+            return oldItem.mark == newItem.mark
         }
 
         override fun areContentsTheSame(oldItem: Laptop, newItem: Laptop): Boolean {
@@ -48,7 +48,7 @@ class LaptopAdapter(
 
 
     val differ = AsyncListDiffer(this,differCallBack);
-    fun submitlist(list: List<Laptop>) = differ.submitList(list);
+    fun submitlist(list: MutableList<Laptop?>?) = differ.submitList(list);
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val laptop = differ.currentList.get(position)
